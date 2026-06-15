@@ -1,46 +1,119 @@
-# 🌟 Project Omniscience
+# 🌊 Project Omniscience: Deep Acoustic Machine Intelligence
 
-### **Enterprise Acoustic Intelligence & MLOps Platform**
-> A production-ready AI ecosystem designed to process real-time streaming audio feeds from industrial machinery, detect critical anomalies using Deep Learning, and automatically diagnose underlying failures using Generative AI.
+[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Deep Learning Framework](https://img.shields.io/badge/PyTorch-2.0%2B-orange.svg)](https://pytorch.org/)
+[![Backend Framework](https://img.shields.io/badge/FastAPI-Latest-green.svg)](https://fastapi.tiangolo.com/)
+[![Hardware Accelerator](https://img.shields.io/badge/NVIDIA-CUDA_GPU-green.svg)](https://developer.nvidia.com/cuda-zone)
 
----
-
-## 💼 Business Impact & Core Value (For Non-Tech HR)
-In modern automated factories, a single machine part breaking unexpectedly can halt an entire production line, costing companies thousands of dollars per minute in downtime. 
-
-**Project Omniscience** acts as an automated, highly sensitive digital supervisor:
-1. **Continuous Listening:** The platform streams audio directly from machinery microphones (monitoring the running hum of motors, pumps, or turbines).
-2. **Instant Triaging:** The moment a microscopic crack, friction grind, or loose bearing occurs, our Deep Learning model catches the sound wave pattern and raises a high-priority flag.
-3. **Automated Diagnostics:** Instead of waiting for a human engineer to diagnose the issue, the system passes the anomaly data to a specialized AI Assistant (LLM). The AI immediately reads the digital hardware manual and generates an instantaneous diagnostic report explaining what is wrong and how to fix it.
+An end-to-end, GPU-accelerated Predictive Maintenance platform. This framework continuously monitors 1D acoustic telemetry streams from heavy industrial machinery, transforms them into 2D structural frequency maps, uses a Deep Convolutional Neural Network (CNN) to detect mechanical anomalies, and triggers an automated Generative AI Retrieval-Augmented Generation (RAG) search to dispatch localized repair work orders.
 
 ---
 
-## 🏗️ System Architecture & Roadmap
-The platform is systematically organized into four distinct engineering pillars:
+## 💼 The Business Case: Predictive vs. Reactive Maintenance
 
-* **⚡ Data Engineering:** Real-time data stream simulators that handle high-velocity data chunks without data loss.
-* **🧠 Deep Learning:** GPU-accelerated signal processors converting raw sound waves into math matrices (Spectrograms) read by advanced Convolutional Neural Networks.
-* **🤖 Generative AI:** A Retrieval-Augmented Generation (RAG) pipeline utilizing an vector database to ground an LLM with operational engineering manuals.
-* **🔄 MLOps & Production:** Microservice routing via FastAPI endpoints to expose the AI modeling layers to production networks.
+In automated production plants, unexpected mechanical breakdowns throw factory lines into chaos, costing thousands of dollars per minute in unplanned downtime. 
+
+* **The Old Way:** Companies either wait for an expensive motor to break down entirely, or wastefully replace functional parts on a rigid calendar schedule.
+* **The Omniscience Way:** The platform acts as a non-stop, digital supervisor. By listening to the running hum of machinery via industrial microphones, the AI spots microscopic indicators of structural degradation (like friction screeching or loose mount vibrations) days before a catastrophic failure happens.
 
 ---
 
-## 📂 Production Repository Blueprint
+## ⚙️ Core Architecture & Data Lifecycle Flow
+
+The platform is engineered as a decoupled, modular microservice package. Data flows seamlessly across five distinct operational layers:
+
+
+
+| Layer | System Module | Mathematical & Technical Operation | Layman Intuition |
+| :--- | :--- | :--- | :--- |
+| **1. Ingestion** | `streamer.py` | Continuous high-fidelity 16kHz audio time-series generation with automated Gaussian noise injecting. | Generates realistic factory noise and hides subtle failure squeaks inside it. |
+| **2. Processing** | `processor.py` | Short-Time Fourier Transform (STFT) mapping + Logarithmic Mel-Scale Filterbanks on GPU. | Turns chaotic sound wave lines into clean, color-coded frequency pictures (spectrograms). |
+| **3. Inference** | `detector.py` | Custom 2D Convolutional Neural Network (CNN) built in PyTorch with Batch Normalization. | Scans the sound pictures like a self-driving car scans roads, searching for glowing failure tracks. |
+| **4. Diagnostics** | `knowledge_base.py` | Vector database index generation with dense mathematical Cosine Similarity angle matching. | Converts alerts into coordinates to find the exact matching repair manual in an automated vault. |
+| **5. Web Serving** | `app.py` | Asynchronous REST API routing powered by FastAPI with strict Pydantic type-validations. | Wraps the entire AI system inside a high-speed web link that factory machinery can securely call. |
+
+---
+
+## 📂 Production Codebase Structure
+
+The repository is structured following professional, clean-code software conventions separating experimentation from production code:
+
 ```text
-project-omniscience/
-├── .gitignore          # Rules stating which data/caches to block from GitHub
-├── README.md           # Master project documentation
-├── requirements.txt    # Project blueprint dependencies
-└── src/                # Core production codebase
-    ├── __init__.py     # Package initialization marker
-    ├── data_pipeline/  # Ingestion streams and audio-to-matrix processors
-    ├── models/         # Deep Learning neural network structures
-    ├── inference/      # FastAPI web application endpoints
-    └── utils/          # System logging and telemetry utilities
+PROJECT-OMNISCIENCE/
+│
+├── notebooks/
+│   └── project-omniscience-gpu-sandbox.ipynb  # Comprehensive GPU research sandbox & plots
+│
+├── src/                                       # Production-grade implementation directory
+│   ├── __init__.py
+│   ├── main.py                                # System orchestra conductor loop script
+│   │
+│   ├── data_pipeline/                         # Hardware ingestion & conversion layer
+│   │   ├── streamer.py
+│   │   └── processor.py
+│   │
+│   ├── models/                                # Deep learning network structural scripts
+│   │   └── detector.py
+│   │
+│   ├── inference/                             # Asynchronous web serving gateway
+│   │   └── app.py
+│   │
+│   └── utils/                                 # Infrastructure data vaults & log engines
+│       ├── logger.py
+│       └── knowledge_base.py
+│
+├── acoustic_model.pt                          # Serialized optimized deep learning weights
+└── README.md                                  # Executive platform documentation
 ```
-## 🛠️ The Power Toolkit (Tech Stack)
-*   **Core Language:** Python
-*   **Data Processing:** NumPy, PyTorch (Tensors)
-*   **Acoustic Modeling:** Torchaudio, OpenCV (Matrix Visualization)
-*   **Web Framework:** FastAPI, Uvicorn
+## 🚀 Automated RAG Diagnostic Dispatch Output Sample
 
+When our deep learning model flags a critical machinery failure, the platform automatically triggers an engineered Retrieval-Augmented Generation (RAG) pipeline. 
+
+Instead of forcing a human operator to look at raw math charts or decrypt generic error messages under pressure, the system instantly cross-references the specific failure frequency against our vector database index to pull the exact engineering manuals needed. It then compiles this hidden technical context into a highly explicit, safety-first operational work order ticket.
+
+Below is an authentic execution sample of the output generated by the platform's orchestration loop during an active system fault:
+
+```text
+================================================================================
+🚨 PROJECT OMNISCIENCE: ENHANCED GENERATIVE DIAGNOSTIC DISPATCH TICKET
+================================================================================
+[ALERT RESOLUTION GROUP: FIELD INDUSTRIAL MAINTENANCE SQUAD]
+[STATUS PROFILE: CRITICAL RUNTIME LOG ENVELOPE]
+
+[1. TRIGGERED TELEMETRY EVENT]: 
+👉 CRITICAL_ANOMALY at 1200Hz friction signature strike
+
+[2. ROOT CAUSE ANALYSIS FROM KNOWLEDGE BASE]:
+🔍 Severe dry bearing degradation. The protective lubricant seal has ruptured, 
+   causing high-velocity metal-on-metal friction inside the rotating shaft assembly.
+
+[3. ACTIONABLE FIELD OPERATIONS COMPLIANCE PROTOCOL]:
+🛠️ DE-ENERGIZE MACHINE IMMEDIATELY. Apply Lube-X High-Viscosity Synthetic Grade 4 
+   Grease directly to the auxiliary bearing housing. Inspect for structural scoring. 
+   If deep scoring is present, swap out bearing unit entirely before restarting line.
+
+--------------------------------------------------------------------------------
+[ℹ️ MLOPS RELIABILITY AGENT NOTE]: This solution ticket was synthesized by 
+matching live GPU acoustic spectrogram network detections against corporate vector 
+manual repositories. Always verify physical power-isolation states before applying 
+manual contact tools.
+================================================================================
+```
+## 🛠️ Installation & Operational Execution Guide
+
+### 1. Clone the Production Asset Architecture
+```bash
+git clone [https://github.com/knightwing0406/project-omniscience.git](https://github.com/knightwing0406/project-omniscience.git)
+cd project-omniscience
+```
+### 2. Initialize the Unified Live Execution System Loop
+This script instantiates the continuous audio streamer, passes data to the GPU transform matrix layers, executes deep learning model evaluations, and hooks into the vector database RAG layer automatically:
+```bash
+python -m src.main
+```
+### 3. Launch the Asynchronous Web API Endpoint Group
+To expose the deep acoustic models to external network systems, start the high-speed FastAPI web server gateway:
+```bash
+uvicorn src.inference.app:app --reload --host 0.0.0.0 --port 8000
+```
+* Once live, interact with the fully automated, self-documenting API portal endpoints via: `http://localhost:8000/docs`
